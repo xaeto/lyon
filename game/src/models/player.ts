@@ -1,5 +1,5 @@
 export class Player {
   name: string = "";
   color: string = "";
-  pos: number = 0
+  pos: number = -1
 }
