@@ -8,7 +8,7 @@
       class="player"
       v-bind:style="{ top: get_pos_y(player.pos) + 'px', left: get_pos_x(player.pos)  + 'px', background: player.color }">
     </div>
-    <div v-if="current_question">
+    <div v-if="current_question && current_question.type">
       <div class="card" 
         v-bind:class="'type-' + current_question.type ? FieldType[current_question.type].toString().toLower() : 'none'">
         <span class="card-title">{{ current_question.text }}</span>
