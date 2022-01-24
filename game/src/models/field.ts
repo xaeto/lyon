@@ -1,13 +1,8 @@
-enum FieldType {
-  GRAMMAR,
-  VOCAB,
-  FIGURE,
-  CITY
-}
+import { FieldType } from "./field-type";
 
-export interface Field {
-  color: string;
-  type: FieldType;
-  x: number;
-  y: number;
+export class Field {
+  color: string = "";
+  type: FieldType | undefined;
+  x: number = 0;
+  y: number = 0;
 }
