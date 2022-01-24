@@ -9,7 +9,8 @@
       v-bind:style="{ top: get_pos_y(player.pos) + 'px', left: get_pos_x(player.pos)  + 'px', background: player.color }">
     </div>
     <div v-if="current_question">
-      <div class="card type-grammar">
+      <div class="card" 
+        v-bind:class="'type-' + current_question.type ? FieldType[current_question.type].toString().toLower() : 'none'">
         <span class="card-title">{{ current_question.text }}</span>
       </div>
       <a v-for="(answer, index) in current_question.answers" :key="index">
@@ -128,9 +129,6 @@ export default class LyonGame extends Vue {
       current_player.pos += this.throw_dice() -1;
     }
 
-    // advance player pos
-    await this.$nextTick();
-
     // check if there's already a player on that field
     const existing_player_index = this.players.findIndex(p => p.pos == current_player.pos);
 
@@ -154,7 +152,8 @@ export default class LyonGame extends Vue {
       this.finished = true;
       this.winner = current_player.name;
     }
-    this.$nextTick();
+
+    await this.$nextTick();
   }
 
   getEventColor(fieldType: FieldType): string{
@@ -207,6 +206,97 @@ export default class LyonGame extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.card {
+  --card-size: 1.5;
+
+  position: absolute;
+  font-family: "Shadows Into Light", cursive;
+  font-size: calc(var(--card-size) * 1.1rem);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  width: calc(var(--card-size) * 400px);
+  padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.card .card-title {
+  margin-bottom: 0.5em;
+  padding: 0.1em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.card a {
+  margin: 0.2em 0;
+  text-decoration: none;
+  color: black;
+  line-height: 1.7;
+  border: solid 1px black;
+  padding: 0 0.5em;
+  border-radius: 10px;
+}
+
+.color-red {
+  background-color: #fe0000;
+}
+.color-blue {
+  background-color: #0000fe;
+}
+.color-green {
+  background-color: #7ffe00;
+}
+.color-organe {
+  background-color: #fe7e00;
+}
+.color-yellow {
+  background-color: #fefe00;
+}
+.color-aqua {
+  background-color: #007f7e;
+}
+.color-puple {
+  background-color: #4f1ec7;
+}
+.color-magenta {
+  background-color: #7e007e;
+}
+
+.type-grammar {
+  background-color: rgb(245, 158, 158);
+}
+
+.type-grammar a {
+  background-color: rgb(245, 201, 201);
+}
+
+.type-vocab {
+  background-color: rgb(255, 233, 159);
+}
+
+.type-vocab a {
+  background-color: rgb(248, 236, 196);
+}
+
+.type-figure {
+  background-color: rgb(116, 116, 223);
+}
+
+.type-figure a {
+  background-color: rgb(171, 171, 231);
+}
+
+.type-city {
+  background-color: rgb(138, 228, 138);
+}
+
+.type-city a {
+  background-color: rgb(178, 235, 178);
+}
+
+.type-none {
+  background-color: rgb(133, 133, 133);
+}
 .hidden {
   display: none !important;
 }
