@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=	, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="board" id="board">
+      <img src="./img/board.svg" alt="" />
+    </div>
+    <div class="dice">
+      <span id="dice-value" class="hidden"></span>
+      <button class="spin hidden" id="dice-button">Roll</button>
+    </div>
+    <div class="card hidden" id="card"></div>
+    <div id="menu" class="menu">
+      <div class="menu-add">
+        <input id="playerNameInput" placeholder="Spieler hinzufügen" />
+        <button onclick="addPlayer()">+</button>
+      </div>
+      <ul id="playerlist"></ul>
+      <button class="menu-start" onclick="startGame()">Spiel starten</button>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

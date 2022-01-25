@@ -6,43 +6,43 @@
       "type": "NONE"
     },
     {
-      "x": 24,
-      "y": 64,
+      "x": 10,
+      "y": 10,
       "type": "GRAMMAR"
     },
     {
-      "x": 42,
-      "y": 42,
+      "x": 20,
+      "y": 20,
       "type": "GRAMMAR"
     },
     {
-      "x": 64,
-      "y": 64,
+      "x": 30,
+      "y": 30,
       "type": "GRAMMAR"
     },
     {
-      "x": 100,
-      "y": 100,
+      "x": 40,
+      "y": 40,
       "type": "GRAMMAR"
     },
     {
-      "x": 120,
-      "y": 120,
+      "x": 50,
+      "y": 50,
       "type": "GRAMMAR"
     }
   ],
   "questions": [
     {
-      "type" : "GRAMMAR",
+      "type": "GRAMMAR",
       "question": "hallo",
-      "answers" : [
+      "answers": [
         {
-          "text" : "123",
-          "correct" : true
+          "text": "123",
+          "correct": true
         },
         {
-          "text" : "1234",
-          "correct" : false
+          "text": "1234",
+          "correct": false
         }
       ]
     }
