@@ -24,13 +24,7 @@
     <button class="dice-button" v-on:click="step()">Wuerfeln</button>
   </div>
   <div class="card" v-if="current_question && current_question.type">
-    <div
-      v-bind:class="
-      current_question.type
-        ? 'type-' +  current_question.type
-        : 'none'
-      "
-    >
+    <div v-bind:class="current_question.type ? 'type-' + current_question.type : 'none'">
       <span class="card-title">{{ current_question.text }}</span>
     </div>
     <a v-for="(answer, index) in current_question.answers" :key="index">
@@ -181,7 +175,7 @@ export default class LyonGame extends Vue {
       case FieldType.CITY:
         return "green";
       default:
-      return "gray";
+        return "gray";
     }
   }
 
@@ -500,11 +494,11 @@ export default class LyonGame extends Vue {
 }
 
 @keyframes spin {
-from {
-  transform: rotate(0deg);
-}
-to {
-  transform: rotate(360deg);
-}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
