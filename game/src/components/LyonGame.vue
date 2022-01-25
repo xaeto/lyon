@@ -128,7 +128,7 @@ export default class LyonGame extends Vue {
     const questions = this.get_questions().filter((e) => e.type == type);
     const index = Math.floor(Math.random() * questions.length - 1) + 1;
 
-    console.log("question index: ", index);
+    console.log("question type: ", FieldType[questions[index].type]);
 
     return questions[index];
   }
