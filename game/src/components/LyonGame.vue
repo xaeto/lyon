@@ -2,12 +2,13 @@
   <div class="board">
     <img src="./../assets/board.svg" alt="" />
     <div
-      class="field"
-      :class=""
       v-bind:style="{ '--field-y': field.y, '--field-x': field.x }"
+      class="field"
+      v-bind:class = "field.type !== undefined ? 'field-' + field.type : 'field-none'"
       v-for="(field, index) in fields"
       :key="index"
-    ></div>
+    >
+    </div>
     <div
       v-for="(player, index) in players"
       :key="index"
@@ -19,7 +20,7 @@
       }"
     ></div>
   </div>
-  <div class="dice">
+  <div class="dice" v-if="started">
     <button class="dice-button" v-on:click="step()">Wuerfeln</button>
   </div>
   <div class="card" v-if="current_question && current_question.type">
