@@ -2,7 +2,12 @@
   <div class="board">
     <img src="./../assets/board.svg" alt="" />
     <div
+<<<<<<< HEAD
       v-bind:class="{ 'field field-': field.type }"
+=======
+      class="field"
+      :class=""
+>>>>>>> 60ae68105d4afc59877f34a255f7e42fd877806f
       v-bind:style="{ '--field-y': field.y, '--field-x': field.x }"
       v-for="(field, index) in fields"
       :key="index"
@@ -24,9 +29,9 @@
   <div class="card" v-if="current_question && current_question.type">
     <div
       v-bind:class="
-        'type-' + current_question.type
-          ? FieldType[current_question.type].toString().toLower()
-          : 'none'
+      current_question.type
+        ? 'type-' +  current_question.type
+        : 'none'
       "
     >
       <span class="card-title">{{ current_question.text }}</span>
@@ -56,7 +61,6 @@
 
 <script lang="ts">
 import game_data from "../game.json";
-
 import { Field } from "./../models/field";
 import { FieldType } from "./../models/field-type";
 import { Player } from "./../models/player";
@@ -129,7 +133,7 @@ export default class LyonGame extends Vue {
     const questions = this.get_questions().filter((e) => e.type == type);
     const index = Math.floor(Math.random() * questions.length - 1) + 1;
 
-    console.log("question index: ", index);
+    console.log("question type: ", questions[index].type);
 
     return questions[index];
   }
@@ -180,7 +184,7 @@ export default class LyonGame extends Vue {
       case FieldType.CITY:
         return "green";
       default:
-        return "gray";
+      return "gray";
     }
   }
 
@@ -365,7 +369,7 @@ export default class LyonGame extends Vue {
   background-color: #7e007e;
 }
 
-.type-grammar {
+.type-grammer {
   background-color: rgb(245, 158, 158);
 }
 
@@ -499,11 +503,11 @@ export default class LyonGame extends Vue {
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+}
 }
 </style>
