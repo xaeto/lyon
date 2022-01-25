@@ -178,6 +178,7 @@ function roll() {
 
 function checkAnwser(anwser) {
   GAME.players[GAME.currentPlayer].lastAnwser = anwser;
+  outsideCardResolve();
 }
 
 async function listenerDiceButton() {
@@ -190,9 +191,8 @@ async function waitForRoll() {
   });
 }
 
-async function listenerAwnserButton() {
-  anwserElements = document.getElementsByClassName("correct");
-  console.log(typeof anwserElements);
+async function listenerAnwserButton() {
+  anwserElements = document.querySelectorAll(".correct");
   anwserElements.forEach((element) => {
     classes = element.getAttribute("class");
     if (classes.toString().includes("correct-true")) {
@@ -201,7 +201,6 @@ async function listenerAwnserButton() {
       element.addEventListener("click", checkAnwser(false));
     }
   });
-  document.getElementById("").addEventListener("click", outsideCardResolve);
 }
 
 async function waitForAnwser() {
@@ -247,10 +246,15 @@ async function loop() {
   }
 
   //check for card event
-  if (GAME.fields[currentPlayerPos] !== "none" && GAME.fields[currentPlayerPos] !== "start") {
+  console.log(currentPlayerPos);
+  console.log(GAME.fields[currentPlayerPos].type);
+  if (
+    GAME.fields[currentPlayerPos].type !== "none" &&
+    GAME.fields[currentPlayerPos].type !== "start"
+  ) {
     card = randomCard(GAME.fields[currentPlayerPos].type);
     updateCard(card, GAME.fields[currentPlayerPos].type);
-    await Promise([waitForAnwser(), listenerAwnserButton()]);
+    await Promise([waitForAnwser()]);
 
     if (GAME.players[GAME.currentPlayer].lastAnwser === false) {
       movePlayer(GAME.currentPlayer, -5);

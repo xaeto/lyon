@@ -2,7 +2,7 @@
   <div class="board">
     <img src="./../assets/board.svg" alt="" />
     <div
-      class="field"
+      v-bind:class="{ 'field field-': field.type }"
       v-bind:style="{ '--field-y': field.y, '--field-x': field.x }"
       v-for="(field, index) in fields"
       :key="index"
