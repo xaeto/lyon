@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 14 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-74.5877,0)">
+        <g id="template_player" transform="matrix(0.4375,0,0,1,74.5877,0)">
+            <rect x="0" y="0" width="32" height="32" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="32" height="32"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(2.28571,0,0,1,-170.486,0)">
+                    <path d="M79.094,13.542C79.869,13.838 80.71,14 81.588,14C82.466,14 83.306,13.838 84.082,13.542L81.588,32L79.094,13.542Z" style="fill:url(#_Linear2);"/>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(4.11927e-14,20,-20,4.11927e-14,81.5877,12)"><stop offset="0" style="stop-color:rgb(54,54,54);stop-opacity:1"/><stop offset="1" style="stop-color:white;stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>

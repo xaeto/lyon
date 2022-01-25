@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">Click</button>
+    <script>
+      let outsideResolve;
+
+      var promise = new Promise(function (resolve) {
+        promiseResolve = resolve;
+      });
+
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      async function waitForButton() {
+        return new Promise((resolve) => {
+          outsideResolve = resolve;
+        });
+      }
+
+      async function listener() {
+        console.log("TEST from LISTENER");
+        document.getElementById("btn").addEventListener("click", outsideResolve);
+      }
+      async function main() {
+        console.log("Before Wait()");
+        await waitForButton();
+        console.log("After Wait()");
+      }
+      async function topLevelAsync() {
+        await Promise.all([main(), listener()]);
+      }
+      topLevelAsync();
+    </script>
+  </body>
+</html>

@@ -21,9 +21,8 @@
   <div class="dice">
     <button class="dice-button" v-on:click="step()">Wuerfeln</button>
   </div>
-  <div v-if="current_question && current_question.type">
+  <div class="card" v-if="current_question && current_question.type">
     <div
-      class="card"
       v-bind:class="
         'type-' + current_question.type
           ? FieldType[current_question.type].toString().toLower()
@@ -38,14 +37,16 @@
     </a>
   </div>
   <div v-if="!started" class="menu">
-    <input v-model="player_name" placeholder="Spieler hinzufuegen" />
-    <button v-on:click="add_player()">Add Player</button>
-    <button v-on:click="start_game()">Spiel starten</button>
+    <div class="menu-add">
+      <input v-model="player_name" placeholder="Spieler hinzufuegen" />
+      <button v-on:click="add_player()">+</button>
+    </div>
     <ul>
       <li v-for="(player, index) in players" :key="index">
         {{ player.name }}
       </li>
     </ul>
+    <button class="menu-start" v-on:click="start_game()">Spiel starten</button>
   </div>
   <div v-if="finished" class="hidden">
     <label> {{ winner }} gewinnt </label>
@@ -223,13 +224,6 @@ export default class LyonGame extends Vue {
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  place-items: center;
-}
-
 .hidden {
   display: none !important;
 }
@@ -250,6 +244,8 @@ body {
   z-index: -50;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .field {
