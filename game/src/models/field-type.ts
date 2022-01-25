@@ -1,6 +1,6 @@
 export enum FieldType {
-  GRAMMAR,
-  VOCAB,
-  FIGURE,
-  CITY
+  grammar,
+  vocab,
+  figure,
+  city,
 }
